@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+using System;
+using System.Collections.Generic;
+>>>>>>> da74f5c0184bfbd4dc4f40a01361c196f8c2ba30
 namespace Unikent.API.Models;
 
 public class City
@@ -11,13 +16,13 @@ public class City
     public float RentPrices { get; set; }
     public float SecurityIndexs { get; set; }
     public float OffenceInddex { get; set; }
-    public string[]  NearCity { get; set; }
+    public string  NearCity { get; set; }
     public float SocialScore { get; set; }
     public String NightLife { get; set; }
     public TimeSpan NigtLifeStart { get; set; }
     public TimeSpan NightLifeEnd { get; set; }
-    public string[] Weaather { get; set; }
-    public string[] Density { get; set; }
-    public string[] Transpor { get; set; }
+    public string Weaather { get; set; }
+    public string Density { get; set; }
+    public string Transpor { get; set; }
 
 }
