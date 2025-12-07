@@ -1,0 +1,11 @@
+# Visual Studio temporary files
+.vs/
+*.user
+*.suo
+
+# Derleme (Build) çıktıları
+[Bb]in/
+[Oo]bj/
+
+# NuGet paket önbelleği (Gerekirse)
+packages/
