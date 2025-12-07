@@ -1,10 +1,8 @@
-
 using System;
 using System.Collections.Generic;
 
 namespace Unikent.API.Models
 {
-
     public class City
     {
         public Guid Id { get; set; }

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "rwV2Z5RAcUg=",
+  "dgSpecHash": "HrVVec1O10w=",
   "success": true,
   "projectFilePath": "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\Unikent.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ad\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Ad\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Ad\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Ad\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
     "C:\\Users\\Ad\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\Ad\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",
     "C:\\Users\\Ad\\.nuget\\packages\\microsoft.build.locator\\1.7.8\\microsoft.build.locator.1.7.8.nupkg.sha512",
@@ -90,5 +91,15 @@
     "C:\\Users\\Ad\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Ad\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\Unikent.API.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\Unikent.API.csproj",
+      "targetGraphs": []
+    }
+  ]
 }

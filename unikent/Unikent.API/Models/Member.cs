@@ -1,4 +1,5 @@
 namespace Unikent.API.Models
+
 {
     public class Member
     {

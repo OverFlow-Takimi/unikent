@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Unikent.API.Models
@@ -13,6 +12,7 @@ namespace Unikent.API.Models
         public float MonthlyIncome { get; set; }
 
         public int ImportanceCost { get; set; }
+
         public int ImportanceSafety { get; set; }
         public int ImportanceSocial { get; set; }
 
@@ -20,4 +20,6 @@ namespace Unikent.API.Models
         public bool PrefersHotClimate { get; set; }
         public bool WantsNatureLifestyle { get; set; }
     }
+
 }
+

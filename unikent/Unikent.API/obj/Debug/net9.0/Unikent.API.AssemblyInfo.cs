@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Unikent.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ed8f40b2ab1fc4d44dd882faf1dee15e1d829ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94e76506e8a0c70ca69c68b5708438104edb5a9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Unikent.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Unikent.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

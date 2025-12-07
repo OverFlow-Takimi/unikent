@@ -1,5 +1,6 @@
 using System;
 
+
 namespace Unikent.API.Models
 {
     public class Result
@@ -9,4 +10,5 @@ namespace Unikent.API.Models
         public double Score { get; set; }
         public City City { get; set; }
     }
+
 }

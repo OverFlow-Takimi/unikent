@@ -1,4 +1,5 @@
 ﻿namespace Unikent.API.DTOs
+
 {
     public interface CityDto
     {
@@ -16,3 +17,4 @@
         public string Climate { get; set; }          
     }
 }
+
