@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "s4dh6U1fWPc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\Unikent.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ad\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.10\\microsoft.aspnetcore.openapi.9.0.10.nupkg.sha512",
+    "C:\\Users\\Ad\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
