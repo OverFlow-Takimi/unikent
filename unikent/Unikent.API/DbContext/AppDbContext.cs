@@ -1,30 +1,17 @@
-<<<<<<< HEAD
-﻿using DefaultNamespace;
-=======
->>>>>>> da74f5c0184bfbd4dc4f40a01361c196f8c2ba30
-using Microsoft.EntityFrameworkCore;
 using Unikent.API.Models;
 
-namespace Unikent.API.DbContext;
-
-public class AppDbContext : Microsoft.EntityFrameworkCore.DbContext
+namespace Unikent.API.DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    public class AppDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
+        public AppDbContext(Microsoft.EntityFrameworkCore.DbContextOptions<AppDbContext> options)
+            : base(options)
+        {
+        }
+
+        public Microsoft.EntityFrameworkCore.DbSet<City> Cities { get; set; } = null!;
+        public Microsoft.EntityFrameworkCore.DbSet<Member> Members { get; set; } = null!;
+        public Microsoft.EntityFrameworkCore.DbSet<Request> Requests { get; set; } = null!;
+        public Microsoft.EntityFrameworkCore.DbSet<Result> Results { get; set; } = null!;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> da74f5c0184bfbd4dc4f40a01361c196f8c2ba30
-    //Veritabanı tablolarımız
-    public DbSet<City> Cities { get; set; }
-    public DbSet<Member> Members { get; set; }
-    public DbSet<Request> Requests { get; set; }
-    public DbSet<Result> Results { get; set; }
-<<<<<<< HEAD
 }
-=======
-
-
-}
->>>>>>> da74f5c0184bfbd4dc4f40a01361c196f8c2ba30

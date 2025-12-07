@@ -1,4 +1,4 @@
-﻿using Microsoft.Identity.Client;
+﻿//using Microsoft.Identity.Client;
 using Unikent.API.DbContext;
 using Unikent.API.Models;
 
