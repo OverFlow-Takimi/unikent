@@ -32,8 +32,8 @@ const Hero = ({ onExplore, onCompare }: HeroProps) => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-slide-up">
-          <span className="block text-foreground">Üniversite Şehri</span>
-          <span className="text-gradient">Rehberin</span>
+          <span className="block text-foreground">Uni</span>
+          <span className="text-gradient">Kent</span>
         </h1>
 
         <p

@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { GraduationCap, Loader2 } from "lucide-react";
+import { authService } from "@/services/authService";
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -40,16 +41,42 @@ const Register = () => {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsLoading(true);
-        // Simulate API call
-        setTimeout(() => {
-            console.log(values);
-            setIsLoading(false);
+        try {
+            await authService.register({
+                name: values.name,
+                surname: values.surname,
+                email: values.email,
+                password: values.password,
+                nickname: values.name
+            });
+
+            // Save user to local storage for frontend auth state
+            localStorage.setItem('user', JSON.stringify({
+                name: values.name,
+                surname: values.surname,
+                email: values.email
+            }));
+
             toast.success("Kayıt olundu", {
                 description: "Hesabınız başarıyla oluşturuldu.",
             });
-        }, 2000);
+
+            // Optional: Redirect to login or home
+            // navigate('/'); // If we imported useNavigate
+        } catch (error: any) {
+            console.error(error);
+            const errorMessage = typeof error.response?.data === 'string'
+                ? error.response.data
+                : "Kayıt olurken bir hata oluştu.";
+
+            toast.error("Hata", {
+                description: errorMessage,
+            });
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -82,7 +109,7 @@ const Register = () => {
                             />
                             <FormField
                                 control={form.control}
-                                name="name"
+                                name="surname"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Soyad</FormLabel>

@@ -37,9 +37,18 @@ const Login = () => {
         setTimeout(() => {
             console.log(values);
             setIsLoading(false);
+
+            // Mock data
+            localStorage.setItem('user', JSON.stringify({
+                name: "Test",
+                surname: "Kullanıcı",
+                email: values.email
+            }));
+
             toast.success("Giriş yapıldı", {
                 description: "Başarıyla giriş yaptınız.",
             });
+            window.location.href = "/"; // hmmm??
         }, 2000);
     }
 

@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Logo & info */}
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold text-foreground mb-2">
-              Üniversite Şehri <span className="text-gradient">Rehberi</span>
+              Uni <span className="text-gradient">Kent</span>
             </h3>
             <p className="text-sm text-muted-foreground">
               UniKent - Şehirlerin Geleceği
