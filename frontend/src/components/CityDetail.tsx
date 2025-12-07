@@ -125,7 +125,7 @@ const CityDetail = ({ city, onClose }: CityDetailProps) => {
                   </div>
                   <div className="bg-muted/50 rounded-lg p-3">
                     <div className="text-sm text-muted-foreground mb-1">
-                      Kalabalık
+                      Yoğunluk
                     </div>
                     <div className="font-semibold">{city.crowdLevel}</div>
                   </div>

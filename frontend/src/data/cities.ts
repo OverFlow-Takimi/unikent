@@ -2,6 +2,7 @@ export interface City {
   id: string;
   name: string;
   population: number;
+  image: string;
   studentPopulation: string;
   monthlyCost: { min: number; max: number };
   dormCost: { min: number; max: number };
@@ -21,6 +22,8 @@ export const cities: City[] = [
     id: "isparta",
     name: "Isparta",
     population: 450400,
+    image:
+      "https://media.istockphoto.com/id/1473848877/tr/foto%C4%9Fraf/aerial-view-over-rooftops-and-mosque-minaret-in-egirdir-isparta-province-in-turkey-travel.jpg?s=612x612&w=0&k=20&c=KVmwceSaJmUyr3FC3tvxy_s33KBiZnx4WJrNzs5pTmc=",
     studentPopulation: "70.000 - 120.000",
     monthlyCost: { min: 11000, max: 17000 },
     dormCost: { min: 55000, max: 110000 },
@@ -38,6 +41,8 @@ export const cities: City[] = [
     id: "eskisehir",
     name: "Eskişehir",
     population: 921630,
+    image:
+      "https://media.istockphoto.com/id/1992584767/tr/foto%C4%9Fraf/porsuk-river-and-landscape-passing-through-eski%C5%9Fehir-center.jpg?s=612x612&w=0&k=20&c=7aMQT8QFDg2qDURJF1i49paS2hWPMKI4mULXpncgrU0=",
     studentPopulation: "65.000 - 66.000",
     monthlyCost: { min: 14000, max: 22000 },
     dormCost: { min: 75000, max: 150000 },
@@ -55,6 +60,8 @@ export const cities: City[] = [
     id: "konya",
     name: "Konya",
     population: 2330024,
+    image:
+      "https://media.istockphoto.com/id/520421346/tr/foto%C4%9Fraf/mevlana-turkey.jpg?s=612x612&w=0&k=20&c=ajofZ6LnmvyOLBHjmYckYShfJFtlpuxc6STN4XGrBT4=",
     studentPopulation: "140.000 - 160.000",
     monthlyCost: { min: 14500, max: 22500 },
     dormCost: { min: 70000, max: 145000 },
@@ -72,6 +79,8 @@ export const cities: City[] = [
     id: "edirne",
     name: "Edirne",
     population: 417800,
+    image:
+      "https://media.istockphoto.com/id/1357001705/tr/foto%C4%9Fraf/selimiye-camii.jpg?s=612x612&w=0&k=20&c=iJftAvhGKJGqck43m-O1NMslWxSFQwjZh_xT4livj3w=",
     studentPopulation: "40.000 - 43.000",
     monthlyCost: { min: 13500, max: 20000 },
     dormCost: { min: 65000, max: 125000 },
@@ -89,6 +98,8 @@ export const cities: City[] = [
     id: "bursa",
     name: "Bursa",
     population: 3238618,
+    image:
+      "https://media.istockphoto.com/id/181890888/tr/foto%C4%9Fraf/mosque.jpg?s=612x612&w=0&k=20&c=SczqZAoZoMET4zNzMmjoQRoTFOvTgaAINwsEHG8rNe8=",
     studentPopulation: "80.000 - 83.000",
     monthlyCost: { min: 15000, max: 24000 },
     dormCost: { min: 90000, max: 180000 },
@@ -106,6 +117,7 @@ export const cities: City[] = [
     id: "sakarya",
     name: "Sakarya",
     population: 1110735,
+    image: "https://example.com/sakarya.jpg",
     studentPopulation: "75.000 - 85.000",
     monthlyCost: { min: 14000, max: 21000 },
     dormCost: { min: 65000, max: 130000 },
@@ -123,6 +135,7 @@ export const cities: City[] = [
     id: "samsun",
     name: "Samsun",
     population: 1377942,
+    image: "https://example.com/samsun.jpg",
     studentPopulation: "60.000 - 65.000",
     monthlyCost: { min: 13500, max: 21000 },
     dormCost: { min: 60000, max: 120000 },
@@ -140,6 +153,7 @@ export const cities: City[] = [
     id: "artvin",
     name: "Artvin",
     population: 169673,
+    image: "https://example.com/artvin.jpg",
     studentPopulation: "10.000 - 11.500",
     monthlyCost: { min: 10500, max: 15500 },
     dormCost: { min: 40000, max: 85000 },
@@ -157,6 +171,7 @@ export const cities: City[] = [
     id: "gaziantep",
     name: "Gaziantep",
     population: 2193363,
+    image: "https://example.com/gaziantep.jpg",
     studentPopulation: "70.000 - 78.000",
     monthlyCost: { min: 14500, max: 23500 },
     dormCost: { min: 85000, max: 165000 },
