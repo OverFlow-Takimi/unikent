@@ -1,31 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\Unikent.API.csproj": {}
+    "/Users/yaren/Desktop/backend/unikent/unikent/Unikent.API/Unikent.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\Unikent.API.csproj": {
+    "/Users/yaren/Desktop/backend/unikent/unikent/Unikent.API/Unikent.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\Unikent.API.csproj",
+        "projectUniqueName": "/Users/yaren/Desktop/backend/unikent/unikent/Unikent.API/Unikent.API.csproj",
         "projectName": "Unikent.API",
-        "projectPath": "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\Unikent.API.csproj",
-        "packagesPath": "C:\\Users\\Ad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ad\\unikent\\unikent\\Unikent.API\\obj\\",
+        "projectPath": "/Users/yaren/Desktop/backend/unikent/unikent/Unikent.API/Unikent.API.csproj",
+        "packagesPath": "/Users/yaren/.nuget/packages/",
+        "outputPath": "/Users/yaren/Desktop/backend/unikent/unikent/Unikent.API/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Ad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/yaren/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +47,27 @@
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[9.0.10, )"
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
@@ -74,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
