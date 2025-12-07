@@ -24,6 +24,11 @@ const Footer = () => {
             </span>
           </div>
 
+          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <a href="/about-us" className="hover:text-primary transition-colors">Hakkımızda</a>
+            <a href="/contact" className="hover:text-primary transition-colors">İletişim</a>
+          </div>
+
           <div className="flex items-center gap-4">
             <a
               href="https://github.com/OverFlow-Takimi/unikent"
@@ -40,8 +45,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-border text-center text-sm text-muted-foreground">
+        <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>© 2024 UniKent. Tüm hakları saklıdır.</p>
+          <div className="flex items-center gap-4">
+            <a href="/privacy-policy" className="hover:text-primary transition-colors">Gizlilik Politikası</a>
+            <a href="/terms-of-service" className="hover:text-primary transition-colors">Kullanım Koşulları</a>
+          </div>
         </div>
       </div>
     </footer>
