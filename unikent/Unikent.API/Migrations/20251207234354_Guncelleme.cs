@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Unikent.API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Guncelleme : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,10 +18,16 @@ namespace Unikent.API.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GPopulation = table.Column<float>(type: "real", nullable: false),
-                    SPopulation = table.Column<float>(type: "real", nullable: false),
-                    MonthCost = table.Column<float>(type: "real", nullable: false),
-                    DormitoryPrices = table.Column<float>(type: "real", nullable: false),
-                    RentPrices = table.Column<float>(type: "real", nullable: false),
+                    SPopulationMax = table.Column<int>(type: "int", nullable: false),
+                    SPopulationMin = table.Column<int>(type: "int", nullable: false),
+                    MonthCost = table.Column<int>(type: "int", nullable: false),
+                    MonthCoastMax = table.Column<int>(type: "int", nullable: false),
+                    MonthCoastMin = table.Column<int>(type: "int", nullable: false),
+                    DormitoryPrices = table.Column<int>(type: "int", nullable: false),
+                    DormitoryPricesMax = table.Column<int>(type: "int", nullable: false),
+                    DormitoryPricesMin = table.Column<int>(type: "int", nullable: false),
+                    RentPricesMax = table.Column<int>(type: "int", nullable: false),
+                    RentPricesMin = table.Column<int>(type: "int", nullable: false),
                     SecurityIndexs = table.Column<float>(type: "real", nullable: false),
                     OffenceInddex = table.Column<float>(type: "real", nullable: false),
                     NearCity = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -29,7 +35,8 @@ namespace Unikent.API.Migrations
                     NightLife = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NigtLifeStart = table.Column<TimeSpan>(type: "time", nullable: false),
                     NightLifeEnd = table.Column<TimeSpan>(type: "time", nullable: false),
-                    Weaather = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WeaatherMax = table.Column<int>(type: "int", nullable: false),
+                    WeatherMin = table.Column<int>(type: "int", nullable: false),
                     Density = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Transpor = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -61,14 +68,13 @@ namespace Unikent.API.Migrations
                 {
                     RId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GPopulation = table.Column<float>(type: "real", nullable: false),
-                    SPopulation = table.Column<float>(type: "real", nullable: false),
-                    MonthlyIncome = table.Column<float>(type: "real", nullable: false),
+                    SPopulation = table.Column<int>(type: "int", nullable: false),
+                    MonthlyIncome = table.Column<int>(type: "int", nullable: false),
                     ImportanceCost = table.Column<int>(type: "int", nullable: false),
                     ImportanceSafety = table.Column<int>(type: "int", nullable: false),
                     ImportanceSocial = table.Column<int>(type: "int", nullable: false),
                     WantsNightLife = table.Column<bool>(type: "bit", nullable: false),
-                    PrefersHotClimate = table.Column<bool>(type: "bit", nullable: false),
+                    PrefersHotClimate = table.Column<float>(type: "real", nullable: false),
                     WantsNatureLifestyle = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

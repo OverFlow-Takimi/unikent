@@ -7,9 +7,9 @@ namespace Unikent.API.Models
         [Key]
         public Guid RId { get; set; }
         public Guid MId { get; set; }
-        public float GPopulation { get; set; }
-        public float SPopulation { get; set; }
-        public float MonthlyIncome { get; set; }
+       // public int GPopulation { get; set; }
+        public int SPopulation { get; set; }
+        public int MonthlyIncome { get; set; }
 
         public int ImportanceCost { get; set; }
 
@@ -17,7 +17,7 @@ namespace Unikent.API.Models
         public int ImportanceSocial { get; set; }
 
         public bool WantsNightLife { get; set; }
-        public bool PrefersHotClimate { get; set; }
+        public float PrefersHotClimate { get; set; }
         public bool WantsNatureLifestyle { get; set; }
     }
 

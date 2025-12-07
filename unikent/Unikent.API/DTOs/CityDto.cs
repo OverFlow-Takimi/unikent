@@ -4,7 +4,7 @@
     public interface CityDto
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string  Name { get; set; }
 
         public float SecurityScore { get; set; }    
         public float SocialScore { get; set; }     

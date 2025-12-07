@@ -22,7 +22,92 @@ namespace Unikent.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DefaultNamespace.Member", b =>
+            modelBuilder.Entity("Unikent.API.Models.City", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Density")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DormitoryPrices")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DormitoryPricesMax")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DormitoryPricesMin")
+                        .HasColumnType("int");
+
+                    b.Property<float>("GPopulation")
+                        .HasColumnType("real");
+
+                    b.Property<int>("MonthCoastMax")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MonthCoastMin")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MonthCost")
+                        .HasColumnType("int");
+
+                    b.PrimitiveCollection<string>("NearCity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NightLife")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("NightLifeEnd")
+                        .HasColumnType("time");
+
+                    b.Property<TimeSpan>("NigtLifeStart")
+                        .HasColumnType("time");
+
+                    b.Property<float>("OffenceInddex")
+                        .HasColumnType("real");
+
+                    b.Property<int>("RentPricesMax")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RentPricesMin")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SPopulationMax")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SPopulationMin")
+                        .HasColumnType("int");
+
+                    b.Property<float>("SecurityIndexs")
+                        .HasColumnType("real");
+
+                    b.Property<float>("SocialScore")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Transpor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WeaatherMax")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WeatherMin")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("Unikent.API.Models.Member", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -56,79 +141,11 @@ namespace Unikent.API.Migrations
                     b.ToTable("Members");
                 });
 
-            modelBuilder.Entity("Unikent.API.Models.City", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.PrimitiveCollection<string>("Density")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("DormitoryPrices")
-                        .HasColumnType("real");
-
-                    b.Property<float>("GPopulation")
-                        .HasColumnType("real");
-
-                    b.Property<float>("MonthCost")
-                        .HasColumnType("real");
-
-                    b.PrimitiveCollection<string>("NearCity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NightLife")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeSpan>("NightLifeEnd")
-                        .HasColumnType("time");
-
-                    b.Property<TimeSpan>("NigtLifeStart")
-                        .HasColumnType("time");
-
-                    b.Property<float>("OffenceInddex")
-                        .HasColumnType("real");
-
-                    b.Property<float>("RentPrices")
-                        .HasColumnType("real");
-
-                    b.Property<float>("SPopulation")
-                        .HasColumnType("real");
-
-                    b.Property<float>("SecurityIndexs")
-                        .HasColumnType("real");
-
-                    b.Property<float>("SocialScore")
-                        .HasColumnType("real");
-
-                    b.PrimitiveCollection<string>("Transpor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.PrimitiveCollection<string>("Weaather")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cities");
-                });
-
             modelBuilder.Entity("Unikent.API.Models.Request", b =>
                 {
                     b.Property<Guid>("RId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<float>("GPopulation")
-                        .HasColumnType("real");
 
                     b.Property<int>("ImportanceCost")
                         .HasColumnType("int");
@@ -142,14 +159,14 @@ namespace Unikent.API.Migrations
                     b.Property<Guid>("MId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float>("MonthlyIncome")
+                    b.Property<int>("MonthlyIncome")
+                        .HasColumnType("int");
+
+                    b.Property<float>("PrefersHotClimate")
                         .HasColumnType("real");
 
-                    b.Property<bool>("PrefersHotClimate")
-                        .HasColumnType("bit");
-
-                    b.Property<float>("SPopulation")
-                        .HasColumnType("real");
+                    b.Property<int>("SPopulation")
+                        .HasColumnType("int");
 
                     b.Property<bool>("WantsNatureLifestyle")
                         .HasColumnType("bit");
