@@ -43,6 +43,22 @@ public class AuthController : ControllerBase
         _context.Members.Add(newMember);
         _context.SaveChanges();
 
-        return Ok("Kayıt işlemi başarılı! Giriş yapabilirsiniz.");
+        return Ok("Kayıt işlemi başarılı!");
+    }
+
+    [HttpPost("login")]
+    public IActionResult Login([FromBody] LoginDto request)
+    {
+        var user = _context.Members.FirstOrDefault(m => m.Nickname == request.Nickname );
+        if (user == null)
+        {
+            return Unauthorized("Kayıt bulunamadı.");
+        }
+
+        if (user.PasswordHash != request.Password)
+        {
+            return Unauthorized("Şifre yanlış!");
+        }
+        return Ok(new { Message = "Giriş başarılı!", UserId = user.Id, Name = user.MName });
     }
 }
