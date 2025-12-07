@@ -1,7 +1,10 @@
-﻿namespace Unikent.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Unikent.API.Models
 {
     public class Request
     {
+        [Key]
        public Guid RId { get; set; }
         public Guid MId { get; set; }
         public float GPopulation { get; set; }

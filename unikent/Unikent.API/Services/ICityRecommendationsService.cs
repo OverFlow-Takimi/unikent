@@ -4,6 +4,6 @@ namespace Unikent.API.Services
 {
     public interface ICityRecommendationsService
     {
-        List<Result> GetTopCities(RequestDecompressionBuilderExtensions request, int topN = 3);
+        List<Result> GetTopCities(Request request, int topN = 3);
     }
 }

@@ -1,4 +1,4 @@
-namespace DefaultNamespace;
+namespace Unikent.API.Models;
 
 public class City
 {
