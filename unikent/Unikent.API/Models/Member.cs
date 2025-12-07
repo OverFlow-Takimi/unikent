@@ -1,3 +1,4 @@
+using System;
 namespace Unikent.API.Models;
 
 public class Member

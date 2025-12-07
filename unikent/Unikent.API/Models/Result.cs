@@ -1,9 +1,12 @@
-namespace UniKent.API.Models;
+//using DefaultNamespace;
 
-public class Result
+namespace Unikent.API.Models
 {
-    public int Id { get; set; }
-    public string CName { get; set; }
-    public double Score { get; set; }
-    public City City { get; set; }
+    public class Result
+    {
+        public Guid ResultId { get; set; }
+        public string CName { get; set; }
+        public double Score { get; set; }
+        public City City { get; set; }
+    }
 }
