@@ -20,6 +20,9 @@ const formSchema = z.object({
     surname: z.string().min(2, {
         message: "Soyisim en az 2 karakter olmalıdır.",
     }),
+    nickname: z.string().min(2, {
+        message: "Kullanıcı adı en az 2 karakter olmalıdır.",
+    }),
     email: z.string().email({
         message: "Geçerli bir email adresi giriniz.",
     }),
@@ -36,6 +39,7 @@ const Register = () => {
         defaultValues: {
             name: "",
             surname: "",
+            nickname: "",
             email: "",
             password: "",
         },
@@ -56,6 +60,7 @@ const Register = () => {
             localStorage.setItem('user', JSON.stringify({
                 name: values.name,
                 surname: values.surname,
+                nickname: values.nickname,
                 email: values.email
             }));
 
@@ -115,6 +120,19 @@ const Register = () => {
                                         <FormLabel>Soyad</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Soyadınız" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="nickname"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Kullanıcı Adı</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="Kullanıcı Adınız" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
