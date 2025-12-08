@@ -26,7 +26,6 @@ const Navbar = ({ onExplore, onCompare }: NavbarProps) => {
   const handleNavigation = (action: () => void) => {
     if (!isHomePage) {
       navigate("/");
-      // Small timeout to allow navigation to complete before scrolling
       setTimeout(() => {
         action();
       }, 100);
@@ -76,13 +75,12 @@ const Navbar = ({ onExplore, onCompare }: NavbarProps) => {
               </Button>
             )}
 
-            {/* Desktop Auth */}
             <div className="h-6 w-px bg-border mx-2" />
 
             {localStorage.getItem('user') ? (
               <div className="flex items-center gap-4">
                 <span className="text-sm font-medium">
-                  {JSON.parse(localStorage.getItem('user')!).name} {JSON.parse(localStorage.getItem('user')!).surname}
+                  {JSON.parse(localStorage.getItem('user')!).username}
                 </span>
                 <Button
                   variant="ghost"
@@ -158,7 +156,7 @@ const Navbar = ({ onExplore, onCompare }: NavbarProps) => {
             {localStorage.getItem('user') ? (
               <>
                 <div className="text-sm font-medium py-2">
-                  {JSON.parse(localStorage.getItem('user')!).name} {JSON.parse(localStorage.getItem('user')!).surname}
+                  {JSON.parse(localStorage.getItem('user')!).username}
                 </div>
                 <Button
                   variant="ghost"

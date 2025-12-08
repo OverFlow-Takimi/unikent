@@ -13,8 +13,8 @@ import { toast } from "sonner";
 import { GraduationCap, Loader2 } from "lucide-react";
 
 const formSchema = z.object({
-    email: z.string().email({
-        message: "Geçerli bir email adresi giriniz.",
+    username: z.string().min(6, {
+        message: "Kullanıcı adı en az 6 karakter olmalıdır.",
     }),
     password: z.string().min(6, {
         message: "Şifre en az 6 karakter olmalıdır.",
@@ -27,7 +27,7 @@ const Login = () => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            email: "",
+            username: "",
             password: "",
         },
     });
@@ -42,7 +42,7 @@ const Login = () => {
             localStorage.setItem('user', JSON.stringify({
                 name: "Test",
                 surname: "Kullanıcı",
-                email: values.email
+                username: values.username
             }));
 
             toast.success("Giriş yapıldı", {
@@ -69,7 +69,7 @@ const Login = () => {
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                             <FormField
                                 control={form.control}
-                                name="email"
+                                name="username"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Kullanıcı Adı</FormLabel>

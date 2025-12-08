@@ -1,21 +1,11 @@
 export interface BackendCity {
     id: string;
-    cName: string | null;
+    cName: string;
+    imageUrl: string;
     gPopulation: number;
-    sPopulation: number;
     monthCost: number;
-    dormitoryPrices: number;
-    rentPrices: number;
     securityIndexs: number;
-    offenceInddex: number;
-    nearCity: string | null;
     socialScore: number;
-    nightLife: string | null;
-    nigtLifeStart: string | null;
-    nightLifeEnd: string | null;
-    weaather: string | null;
-    density: string | null;
-    transpor: string | null;
 }
 
 export interface RegisterDto {

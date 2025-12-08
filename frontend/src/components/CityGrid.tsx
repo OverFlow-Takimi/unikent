@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Search, SlidersHorizontal } from "lucide-react";
-import { cities, City } from "@/data/cities";
+import { Search, SlidersHorizontal, Loader2, AlertCircle } from "lucide-react";
+import { City } from "@/data/cities";
+import { useCities } from "@/hooks/useCities";
 import CityCard from "./CityCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -19,13 +20,14 @@ interface CityGridProps {
 type SortOption = "name" | "cost-asc" | "cost-desc" | "safety" | "social";
 
 const CityGrid = ({ onCitySelect }: CityGridProps) => {
+  const { cities, loading, error } = useCities();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("name");
 
   const filteredCities = cities
     .filter(
       (city) =>
-        city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (city.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
         city.nearCities.some((nc) =>
           nc.toLowerCase().includes(searchTerm.toLowerCase()),
         ),
@@ -50,6 +52,27 @@ const CityGrid = ({ onCitySelect }: CityGridProps) => {
           return a.name.localeCompare(b.name, "tr");
       }
     });
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-32">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        <span className="ml-2 text-lg text-muted-foreground">Şehirler yükleniyor...</span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col justify-center items-center py-20 text-red-500">
+        <AlertCircle className="w-10 h-10 mb-2" />
+        <p className="text-lg font-medium">{error}</p>
+        <Button variant="outline" className="mt-4" onClick={() => window.location.reload()}>
+          Tekrar Dene
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <section id="cities" className="py-20 bg-muted/30">
