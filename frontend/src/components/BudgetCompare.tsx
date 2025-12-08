@@ -57,52 +57,39 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
 
     const budgetNum = parseInt(budget);
 
-    // Calculate score for each city
     const scoredCities = cities.map((city) => {
       let score = 0;
       const avgCost = getAverageMonthlyCost(city);
 
-      // Check if budget fits
       const housingCost =
         livingType === "dorm"
-          ? (city.dormCost.min + city.dormCost.max) / 2 / 9 // 9 month dorm spread to monthly
+          ? (city.dormCost.min + city.dormCost.max) / 2 / 9
           : (city.rentCost.min + city.rentCost.max) / 2;
 
-      // 1. Budget Score (Base: 50 points)
-      // If budget covers the minimum cost, give points.
       if (budgetNum >= city.monthlyCost.min) {
-        score += 30; // Base accessible score
+        score += 30;
 
-        // Calculate surplus percentage
-        const surplus = (budgetNum - city.monthlyCost.min) / city.monthlyCost.min;
-        // Cap surplus bonus at 20 points (e.g., if you have 20% more than min needed)
+        const surplus =
+          (budgetNum - city.monthlyCost.min) / city.monthlyCost.min;
         score += Math.min(surplus * 100, 20);
       } else {
-        // Severe penalty if budget is not enough
         score -= 100;
       }
 
-      // 2. Safety Score (Weight: 25 points)
-      // If city safety is better than requested, add points
       if (preferences.minSafetyIndex > 0) {
         if (city.safetyIndex >= preferences.minSafetyIndex) {
           score += 25;
-          // Bonus for exceeding expectations
           score += (city.safetyIndex - preferences.minSafetyIndex) * 0.5;
         } else {
-          // Penalty for incorrectly safe cities
-          score -= (preferences.minSafetyIndex - city.safetyIndex);
+          score -= preferences.minSafetyIndex - city.safetyIndex;
         }
       } else {
-        // If user didn't specify, higher safety still gives a small bonus
         score += city.safetyIndex * 0.1;
       }
 
-      // 3. Social Score (Weight: 25 points)
       if (preferences.minSocialScore > 0) {
         if (city.socialScore >= preferences.minSocialScore) {
           score += 25;
-          // Bonus for exceeding
           score += (city.socialScore - preferences.minSocialScore) * 2;
         } else {
           score -= (preferences.minSocialScore - city.socialScore) * 5;
@@ -111,7 +98,6 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
         score += city.socialScore;
       }
 
-      // 4. Transportation (Weight: 15 points)
       if (preferences.transportation !== "Fark etmez") {
         const levels = ["Düşük", "Orta", "Gelişmiş", "Çok Gelişmiş"];
         const cityLevelIdx = levels.indexOf(city.transportation);
@@ -119,21 +105,16 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
 
         if (cityLevelIdx >= prefLevelIdx) {
           score += 15;
-          // Bonus for better transport
           score += (cityLevelIdx - prefLevelIdx) * 5;
         } else {
           score -= (prefLevelIdx - cityLevelIdx) * 10;
         }
       }
-
-      // 5. Crowd Level (Weight: 15 points)
-      // This is subjective, some like quiet, some like crowds. We assume exact match is best.
       if (preferences.crowdLevel !== "Fark etmez") {
         if (city.crowdLevel === preferences.crowdLevel) {
           score += 15;
         } else {
-          // Simple adjacent logic could be added, for now exact match gets full points
-          // Penalty for mismatch
+          //şimdilik mvp modeli için yeterli
           score -= 5;
         }
       }
@@ -163,14 +144,14 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
             Bütçene Göre <span className="text-gradient">Karşılaştır</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Aylık bütçeni ve detaylı tercihlerini gir, sana en uygun 3 şehri puanlayıp önerelim.
+            Aylık bütçeni ve detaylı tercihlerini gir, sana en uygun 3 şehri
+            puanlayıp önerelim.
           </p>
         </div>
 
         {/* Form */}
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-card mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
             {/* Left Column: Budget & Living */}
             <div className="space-y-6">
               <div className="space-y-3">
@@ -204,10 +185,11 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                 >
                   <Label
                     htmlFor="dorm"
-                    className={`flex items-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all ${livingType === "dorm"
+                    className={`flex items-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                      livingType === "dorm"
                         ? "border-primary bg-primary/5"
                         : "border-border hover:border-primary/30"
-                      }`}
+                    }`}
                   >
                     <RadioGroupItem value="dorm" id="dorm" />
                     <Building className="w-4 h-4 text-primary" />
@@ -215,10 +197,11 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                   </Label>
                   <Label
                     htmlFor="rent"
-                    className={`flex items-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all ${livingType === "rent"
+                    className={`flex items-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                      livingType === "rent"
                         ? "border-primary bg-primary/5"
                         : "border-border hover:border-primary/30"
-                      }`}
+                    }`}
                   >
                     <RadioGroupItem value="rent" id="rent" />
                     <Home className="w-4 h-4 text-accent" />
@@ -235,7 +218,7 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                 <div className="space-y-2">
                   <Label className="flex items-center gap-2 text-sm font-semibold">
                     <Shield className="w-4 h-4 text-primary" />
-                    Min. Güvenlik
+                    Güvenlik
                   </Label>
                   <Input
                     type="number"
@@ -244,7 +227,10 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                     placeholder="0-100"
                     value={preferences.minSafetyIndex || ""}
                     onChange={(e) => {
-                      setPreferences(p => ({ ...p, minSafetyIndex: parseInt(e.target.value) || 0 }));
+                      setPreferences((p) => ({
+                        ...p,
+                        minSafetyIndex: parseInt(e.target.value) || 0,
+                      }));
                       setShowResults(false);
                     }}
                   />
@@ -253,7 +239,7 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                 <div className="space-y-2">
                   <Label className="flex items-center gap-2 text-sm font-semibold">
                     <Music className="w-4 h-4 text-accent" />
-                    Min. Sosyal
+                    Sosyal
                   </Label>
                   <Input
                     type="number"
@@ -262,7 +248,10 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                     placeholder="0-10"
                     value={preferences.minSocialScore || ""}
                     onChange={(e) => {
-                      setPreferences(p => ({ ...p, minSocialScore: parseInt(e.target.value) || 0 }));
+                      setPreferences((p) => ({
+                        ...p,
+                        minSocialScore: parseInt(e.target.value) || 0,
+                      }));
                       setShowResults(false);
                     }}
                   />
@@ -280,7 +269,7 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                   <Select
                     value={preferences.transportation}
                     onValueChange={(v) => {
-                      setPreferences(p => ({ ...p, transportation: v }));
+                      setPreferences((p) => ({ ...p, transportation: v }));
                       setShowResults(false);
                     }}
                   >
@@ -304,7 +293,7 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                   <Select
                     value={preferences.crowdLevel}
                     onValueChange={(v) => {
-                      setPreferences(p => ({ ...p, crowdLevel: v }));
+                      setPreferences((p) => ({ ...p, crowdLevel: v }));
                       setShowResults(false);
                     }}
                   >
@@ -369,7 +358,8 @@ const BudgetCompare = ({ onCitySelect }: BudgetCompareProps) => {
                   Kriterlere uygun şehir bulunamadı
                 </h3>
                 <p className="text-muted-foreground">
-                  Lütfen bütçenizi artırın veya kriterlerinizi (özellikle güvenlik/sosyal puanları) biraz düşürün.
+                  Lütfen bütçenizi artırın veya kriterlerinizi (özellikle
+                  güvenlik/sosyal puanları) biraz düşürün.
                 </p>
               </div>
             )}
