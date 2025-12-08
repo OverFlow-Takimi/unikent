@@ -1,19 +1,14 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace Unikent.API.Models
+﻿namespace Unikent.API.DTOs
 {
-    public class Request
+    public class RequestDto
     {
-        [Key]
-        public Guid RId { get; set; }
-        public Guid MId { get; set; }
         public int MonthlyIncome { get; set; }
+
         public int ImportanceSafety { get; set; }
         public int ImportanceSocial { get; set; }
+
         public bool WantsNightLife { get; set; }
         public float Temperature { get; set; }
         public bool WantsNatureLifestyle { get; set; }
     }
-
 }
-
