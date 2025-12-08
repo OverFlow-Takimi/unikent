@@ -11,25 +11,26 @@ namespace Unikent.API.Models
         public int SPopulationMax { get; set; }
         public int SPopulationMin { get; set; }
         public int MonthCost { get; set; }
-        public int MonthCoastMax { get; set; }
-        public int MonthCoastMin { get; set; }
-        public int DormitoryPrices { get; set; }
-        public int DormitoryPricesMax { get; set; }
-        public int DormitoryPricesMin { get; set; }
+        public int MonthCostMax { get; set; }
+        public int MonthCostMin { get; set; }
+        public int DormCost { get; set; }
+        public int DormCostMax { get; set; }
+        public int DormCostMin { get; set; }
+        public string ImageUrl { get; set; }
 
-        public int RentPricesMax { get; set; }
-        public int RentPricesMin { get; set; }
-        public float SecurityIndexs { get; set; }
-        public float OffenceInddex { get; set; }
-        public string [] NearCity { get; set; }
+        public int RentCostMax { get; set; }
+        public int RentCostMin { get; set; }
+        public float SecurityIndex { get; set; }
+        public float CrimeIndex { get; set; }
+        public string [] NearCities { get; set; }
         public float SocialScore { get; set; }
         public String NightLife { get; set; }
-        public TimeSpan NigtLifeStart { get; set; }
+        public TimeSpan NightLifeStart { get; set; }
         public TimeSpan NightLifeEnd { get; set; }
-        public int WeaatherMax { get; set; }
+        public int WeatherMax { get; set; }
         public int WeatherMin { get; set; }
         public string Density { get; set; }
-        public string Transpor { get; set; }
+        public string Transportation { get; set; }
 
     }
 } 

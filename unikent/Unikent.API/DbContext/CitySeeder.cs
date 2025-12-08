@@ -1,0 +1,277 @@
+using Unikent.API.Models;
+
+namespace Unikent.API.DbContext
+{
+    public static class CitySeeder
+    {
+        private const string BaseImageUrl = "https://raw.githubusercontent.com/OverFlow-Takimi/unikent/frontend/frontend/public";
+
+        public static void Seed(AppDbContext context)
+        {
+            if (context.Cities.Any())
+            {
+                return;
+            }
+
+            var cities = new List<City>
+            {
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Isparta",
+                    GPopulation = 450400,
+                    ImageUrl = $"{BaseImageUrl}/cities/isparta.png",
+                    SPopulationMin = 70000,
+                    SPopulationMax = 120000, // "70.000 - 120.000"
+                    MonthCost = (11000 + 17000) / 2,
+                    MonthCostMin = 11000,
+                    MonthCostMax = 17000,
+                    DormCost = (55000 + 110000) / 2,
+                    DormCostMin = 55000,
+                    DormCostMax = 110000,
+                    RentCostMin = 6500,
+                    RentCostMax = 10000,
+                    SecurityIndex = 77.31f,
+                    CrimeIndex = 22.69f,
+                    NearCities = new[] { "Antalya", "Pamukkale" },
+                    SocialScore = 5.5f,
+                    NightLife = "23:00-00:00",
+                    NightLifeStart = TimeSpan.Parse("23:00"),
+                    NightLifeEnd = TimeSpan.Parse("00:00"),
+                    WeatherMin = 6,
+                    WeatherMax = 11,
+                    Density = "Orta",
+                    Transportation = "Orta"
+                },
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Eskişehir",
+                    GPopulation = 921630,
+                    ImageUrl = $"{BaseImageUrl}/cities/eskisehir.png",
+                    SPopulationMin = 65000,
+                    SPopulationMax = 66000,
+                    MonthCost = (14000 + 22000) / 2,
+                    MonthCostMin = 14000,
+                    MonthCostMax = 22000,
+                    DormCost = (75000 + 150000) / 2,
+                    DormCostMin = 75000,
+                    DormCostMax = 150000,
+                    RentCostMin = 8000,
+                    RentCostMax = 12000,
+                    SecurityIndex = 75.12f,
+                    CrimeIndex = 24.88f,
+                    NearCities = new[] { "Kütahya", "Afyon" },
+                    SocialScore = 9.5f,
+                    NightLife = "02:00-04:00",
+                    NightLifeStart = TimeSpan.Parse("02:00"),
+                    NightLifeEnd = TimeSpan.Parse("04:00"),
+                    WeatherMin = 5,
+                    WeatherMax = 9,
+                    Density = "Yoğun",
+                    Transportation = "Çok Gelişmiş"
+                },
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Konya",
+                    GPopulation = 2330024,
+                    ImageUrl = $"{BaseImageUrl}/cities/konya.png",
+                    SPopulationMin = 140000,
+                    SPopulationMax = 160000,
+                    MonthCost = (14500 + 22500) / 2,
+                    MonthCostMin = 14500,
+                    MonthCostMax = 22500,
+                    DormCost = (70000 + 145000) / 2,
+                    DormCostMin = 70000,
+                    DormCostMax = 145000,
+                    RentCostMin = 7000,
+                    RentCostMax = 10500,
+                    SecurityIndex = 64.71f,
+                    CrimeIndex = 35.29f,
+                    NearCities = new[] { "Kapadokya", "Karaman" },
+                    SocialScore = 7.0f,
+                    NightLife = "23:00-01:00",
+                    NightLifeStart = TimeSpan.Parse("23:00"),
+                    NightLifeEnd = TimeSpan.Parse("01:00"),
+                    WeatherMin = 5,
+                    WeatherMax = 10,
+                    Density = "Çok Yoğun",
+                    Transportation = "Çok Gelişmiş"
+                },
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Edirne",
+                    GPopulation = 417800,
+                    ImageUrl = $"{BaseImageUrl}/cities/edirne.png",
+                    SPopulationMin = 40000,
+                    SPopulationMax = 43000,
+                    MonthCost = (13500 + 20000) / 2,
+                    MonthCostMin = 13500,
+                    MonthCostMax = 20000,
+                    DormCost = (65000 + 125000) / 2,
+                    DormCostMin = 65000,
+                    DormCostMax = 125000,
+                    RentCostMin = 7500,
+                    RentCostMax = 12000,
+                    SecurityIndex = 64.73f,
+                    CrimeIndex = 35.27f,
+                    NearCities = new[] { "Tekirdağ", "Kırklareli", "Çanakkale" },
+                    SocialScore = 6.0f,
+                    NightLife = "00:00-01:00",
+                    NightLifeStart = TimeSpan.Parse("00:00"),
+                    NightLifeEnd = TimeSpan.Parse("01:00"),
+                    WeatherMin = 6,
+                    WeatherMax = 10,
+                    Density = "Orta",
+                    Transportation = "Düşük"
+                },
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Bursa",
+                    GPopulation = 3238618,
+                    ImageUrl = $"{BaseImageUrl}/cities/bursa.png",
+                    SPopulationMin = 80000,
+                    SPopulationMax = 83000,
+                    MonthCost = (15000 + 24000) / 2,
+                    MonthCostMin = 15000,
+                    MonthCostMax = 24000,
+                    DormCost = (90000 + 180000) / 2,
+                    DormCostMin = 90000,
+                    DormCostMax = 180000,
+                    RentCostMin = 9000,
+                    RentCostMax = 15000,
+                    SecurityIndex = 53.76f,
+                    CrimeIndex = 46.24f,
+                    NearCities = new[] { "İstanbul", "Balıkesir", "Çanakkale" },
+                    SocialScore = 8.0f,
+                    NightLife = "01:00-03:00",
+                    NightLifeStart = TimeSpan.Parse("01:00"),
+                    NightLifeEnd = TimeSpan.Parse("03:00"),
+                    WeatherMin = 10,
+                    WeatherMax = 13,
+                    Density = "Çok Yoğun",
+                    Transportation = "Çok Gelişmiş"
+                },
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Sakarya",
+                    GPopulation = 1110735,
+                    ImageUrl = $"{BaseImageUrl}/cities/sakarya.png",
+                    SPopulationMin = 75000,
+                    SPopulationMax = 85000,
+                    MonthCost = (14000 + 21000) / 2,
+                    MonthCostMin = 14000,
+                    MonthCostMax = 21000,
+                    DormCost = (65000 + 130000) / 2,
+                    DormCostMin = 65000,
+                    DormCostMax = 130000,
+                    RentCostMin = 7500,
+                    RentCostMax = 11500,
+                    SecurityIndex = 56.57f,
+                    CrimeIndex = 43.43f,
+                    NearCities = new[] { "İstanbul", "Kocaeli", "Düzce", "Bolu" },
+                    SocialScore = 6.0f,
+                    NightLife = "00:00-01:00",
+                    NightLifeStart = TimeSpan.Parse("00:00"),
+                    NightLifeEnd = TimeSpan.Parse("01:00"),
+                    WeatherMin = 8,
+                    WeatherMax = 12,
+                    Density = "Yoğun",
+                    Transportation = "Orta"
+                },
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Samsun",
+                    GPopulation = 1377942,
+                    ImageUrl = $"{BaseImageUrl}/cities/samsun.png",
+                    SPopulationMin = 60000,
+                    SPopulationMax = 65000,
+                    MonthCost = (13500 + 21000) / 2,
+                    MonthCostMin = 13500,
+                    MonthCostMax = 21000,
+                    DormCost = (60000 + 120000) / 2,
+                    DormCostMin = 60000,
+                    DormCostMax = 120000,
+                    RentCostMin = 7000,
+                    RentCostMax = 10500,
+                    SecurityIndex = 53.03f,
+                    CrimeIndex = 46.97f,
+                    NearCities = new[] { "Ordu", "Amasya", "Tokat" },
+                    SocialScore = 6.5f,
+                    NightLife = "00:00-02:00",
+                    NightLifeStart = TimeSpan.Parse("00:00"),
+                    NightLifeEnd = TimeSpan.Parse("02:00"),
+                    WeatherMin = 10,
+                    WeatherMax = 14,
+                    Density = "Yoğun",
+                    Transportation = "Gelişmiş"
+                },
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Artvin",
+                    GPopulation = 169673,
+                    ImageUrl = $"{BaseImageUrl}/cities/artvin.png",
+                    SPopulationMin = 10000,
+                    SPopulationMax = 11500,
+                    MonthCost = (10500 + 15500) / 2,
+                    MonthCostMin = 10500,
+                    MonthCostMax = 15500,
+                    DormCost = (40000 + 85000) / 2,
+                    DormCostMin = 40000,
+                    DormCostMax = 85000,
+                    RentCostMin = 5500,
+                    RentCostMax = 8500,
+                    SecurityIndex = 79.91f,
+                    CrimeIndex = 20.09f,
+                    NearCities = new[] { "Rize", "Batum" },
+                    SocialScore = 3.0f,
+                    NightLife = "22:00-23:00",
+                    NightLifeStart = TimeSpan.Parse("22:00"),
+                    NightLifeEnd = TimeSpan.Parse("23:00"),
+                    WeatherMin = 4,
+                    WeatherMax = 8,
+                    Density = "Sakin",
+                    Transportation = "Düşük"
+                },
+                new City
+                {
+                    Id = Guid.NewGuid(),
+                    CName = "Gaziantep",
+                    GPopulation = 2193363,
+                    ImageUrl = $"{BaseImageUrl}/cities/gaziantep.png",
+                    SPopulationMin = 70000,
+                    SPopulationMax = 78000,
+                    MonthCost = (14500 + 23500) / 2,
+                    MonthCostMin = 14500,
+                    MonthCostMax = 23500,
+                    DormCost = (85000 + 165000) / 2,
+                    DormCostMin = 85000,
+                    DormCostMax = 165000,
+                    RentCostMin = 8500,
+                    RentCostMax = 13000,
+                    SecurityIndex = 52.22f,
+                    CrimeIndex = 47.78f,
+                    NearCities = new[] { "Urfa", "Adıyaman", "Maraş" },
+                    SocialScore = 7.0f,
+                    NightLife = "00:00-02:00",
+                    NightLifeStart = TimeSpan.Parse("00:00"),
+                    NightLifeEnd = TimeSpan.Parse("02:00"),
+                    WeatherMin = 8,
+                    WeatherMax = 13,
+                    Density = "Çok Yoğun",
+                    Transportation = "Gelişmiş"
+                }
+            };
+
+            context.Cities.AddRange(cities);
+            context.SaveChanges();
+            Console.WriteLine("Cities seeded successfully.");
+        }
+    }
+}

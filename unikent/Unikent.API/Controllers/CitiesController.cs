@@ -11,18 +11,39 @@ namespace Unikent.API.Controllers
     public class CitiesController : ControllerBase
     {
         private readonly ICityRecommendationsService _recommendationService;
+        private readonly Unikent.API.DbContext.AppDbContext _context;
 
-        public CitiesController(ICityRecommendationsService recommendationService)
+        public CitiesController(ICityRecommendationsService recommendationService, Unikent.API.DbContext.AppDbContext context)
         {
             _recommendationService = recommendationService;
+            _context = context;
         }
 
         // Şehirleri listele
         [HttpGet]
-        public ActionResult<List<City>> GetAll()
+        public ActionResult<List<Unikent.API.DTOs.CityResponseDto>> GetAll()
         {
-            // Şimdilik basit: Db yoksa boş liste dönebilir
-            return Ok(new List<City>());
+            var cities = _context.Cities.Select(c => new Unikent.API.DTOs.CityResponseDto
+            {
+                Id = c.Id,
+                Name = c.CName,
+                Population = c.GPopulation,
+                Image = c.ImageUrl,
+                StudentPopulation = $"{c.SPopulationMin:#,0} - {c.SPopulationMax:#,0}", // Formatting as string range
+                MonthlyCost = new Unikent.API.DTOs.CostRange { Min = c.MonthCostMin, Max = c.MonthCostMax },
+                DormCost = new Unikent.API.DTOs.CostRange { Min = c.DormCostMin, Max = c.DormCostMax },
+                RentCost = new Unikent.API.DTOs.CostRange { Min = c.RentCostMin, Max = c.RentCostMax },
+                SafetyIndex = c.SecurityIndex,
+                CrimeIndex = c.CrimeIndex,
+                NearCities = c.NearCities,
+                SocialScore = c.SocialScore,
+                Nightlife = c.NightLife,
+                Weather = $"{c.WeatherMin}°C / {c.WeatherMax}°C",
+                CrowdLevel = c.Density,
+                Transportation = c.Transportation
+            }).ToList();
+
+            return Ok(cities);
         }
 
         // Öneri endpoint'i

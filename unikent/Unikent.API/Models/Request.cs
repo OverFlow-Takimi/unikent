@@ -13,6 +13,8 @@ namespace Unikent.API.Models
         public bool WantsNightLife { get; set; }
         public float Temperature { get; set; }
         public bool WantsNatureLifestyle { get; set; }
+        public int ImportanceCost { get; set; }
+        public int ImportanceTransportLevel { get; set; }
     }
 
 }
