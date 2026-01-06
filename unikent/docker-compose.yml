@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: unikent-sql
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password123!
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlvolume:/var/opt/mssql
+
+  api:
+    build:
+      context: .
+      dockerfile: Unikent.API/Dockerfile
+    container_name: unikent-api
+    ports:
+      - "5037:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=UniKentDb;User Id=sa;Password=Password123!;Trusted_Connection=False;TrustServerCertificate=True;
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - sqlserver
+
+volumes:
+  sqlvolume:
