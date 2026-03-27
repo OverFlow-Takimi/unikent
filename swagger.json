@@ -1,0 +1,307 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Unikent.API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Cities": {
+      "get": {
+        "tags": [
+          "Cities"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/City"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/City"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/City"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cities/recommend": {
+      "post": {
+        "tags": [
+          "Cities"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Result"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Result"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Result"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "City": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "cName": {
+            "type": "string",
+            "nullable": true
+          },
+          "gPopulation": {
+            "type": "number",
+            "format": "float"
+          },
+          "sPopulation": {
+            "type": "number",
+            "format": "float"
+          },
+          "monthCost": {
+            "type": "number",
+            "format": "float"
+          },
+          "dormitoryPrices": {
+            "type": "number",
+            "format": "float"
+          },
+          "rentPrices": {
+            "type": "number",
+            "format": "float"
+          },
+          "securityIndexs": {
+            "type": "number",
+            "format": "float"
+          },
+          "offenceInddex": {
+            "type": "number",
+            "format": "float"
+          },
+          "nearCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "socialScore": {
+            "type": "number",
+            "format": "float"
+          },
+          "nightLife": {
+            "type": "string",
+            "nullable": true
+          },
+          "nigtLifeStart": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "nightLifeEnd": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "weaather": {
+            "type": "string",
+            "nullable": true
+          },
+          "density": {
+            "type": "string",
+            "nullable": true
+          },
+          "transpor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "nickname": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Request": {
+        "type": "object",
+        "properties": {
+          "rId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "mId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "gPopulation": {
+            "type": "number",
+            "format": "float"
+          },
+          "sPopulation": {
+            "type": "number",
+            "format": "float"
+          },
+          "monthlyIncome": {
+            "type": "number",
+            "format": "float"
+          },
+          "importanceCost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "importanceSafety": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "importanceSocial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wantsNightLife": {
+            "type": "boolean"
+          },
+          "prefersHotClimate": {
+            "type": "boolean"
+          },
+          "wantsNatureLifestyle": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "resultId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "cName": {
+            "type": "string",
+            "nullable": true
+          },
+          "score": {
+            "type": "number",
+            "format": "double"
+          },
+          "city": {
+            "$ref": "#/components/schemas/City"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
